@@ -1,3 +1,4 @@
+import LoginForm from "./features/auth/LoginForm"
 import { useEffect, useState } from "react"
 
 const API_URL = import.meta.env.VITE_API_URL
@@ -33,6 +34,7 @@ function App() {
     <main className="min-h-screen flex flex-col gap-2 items-center justify-center bg-slate-50">
       <h1 className="text-3xl font-bold text-blue-600">Job Assistant</h1>
       <p className={`text-xl font-bold ${statusColors[status]}`}>{statusMessages[status]}</p>
+      <LoginForm />
     </main>
   )
 }
