@@ -8,6 +8,7 @@ class Settings(BaseSettings):
 
     # Comma-separated list of origins allowed to call the API from a browser.
     cors_origins: str = "http://localhost:5173"
+    supabase_url: str
 
     @property
     def cors_origin_list(self) -> list[str]:
