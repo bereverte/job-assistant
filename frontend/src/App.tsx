@@ -2,8 +2,9 @@ import type { Session } from "@supabase/supabase-js"
 import LoginForm from "./features/auth/LoginForm"
 import { useEffect, useState } from "react"
 import { supabase } from "./lib/supabase"
+import { API_URL } from "./lib/config"
+import BackendUserCheck from "./features/auth/BackendUserCheck"
 
-const API_URL = import.meta.env.VITE_API_URL
 type ApiStatus = "loading" | "ok" | "error"
 
 const statusMessages: Record<ApiStatus, string> = {
@@ -58,6 +59,7 @@ function App() {
       <div>
         <p>Signed in as {session.user.email}</p>
         <button onClick={() => supabase.auth.signOut()}>Sign out</button>
+        <BackendUserCheck session={session} />
       </div>
     )
   }
